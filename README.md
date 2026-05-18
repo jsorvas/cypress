@@ -1,4 +1,4 @@
-# cypress
+# Cypress
 Utilisation de Cypress pour les tests automatisés
 
 - clic
