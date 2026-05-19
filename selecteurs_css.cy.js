@@ -41,4 +41,27 @@ describe("Sélecteurs CSS", () => {
       '[type="button"][class="oxd-icon-button oxd-icon-button--solid-main orangehrm-attendance-card-action"]',
     );
   });
+
+  it("Utilisation de la fonction find", () => {
+    // Je peux trouver un élément enfant en partant du parent + le texte de l'élément HTML
+    cy.get(".orangehrm-todo-list")
+      .find(".orangehrm-todo-list-item")
+      .contains("Pending Self Review");
+  });
+
+  it("Utilisation des fonctions parent & parents", () => {
+    // À partir de l'enfant, je peux trouver le parent
+    cy.get(".orangehrm-todo-list-item")
+      .parent()
+      .should("have.class", "orangehrm-todo-list");
+
+    // Ici, je remonte de l'enfant jusqu'à trouver tous les parents
+    cy.get(".orangehrm-todo-list-item").parents();
+  });
+
+  it.only("Utilisation de la fonction chlidren", () => {
+    // À partir du parent, je peux trouver l'enfant
+
+    cy.get(".orangehrm-todo-list").children().should("have.length", 2);
+  });
 });
